@@ -15,6 +15,7 @@ const appendScriptsToBody = (HTMLString: string) => {
   scriptTags.forEach(element => {
     element.remove()
   });
+
   
   // Add all script tags before </body> instead
   scriptTags.forEach(element => {
