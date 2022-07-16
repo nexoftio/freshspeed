@@ -16,7 +16,6 @@ const appendScriptsToBody = (HTMLString: string) => {
     element.remove()
   });
 
-  
   // Add all script tags before </body> instead
   scriptTags.forEach(element => {
     document.body.appendChild(element)
@@ -25,7 +24,18 @@ const appendScriptsToBody = (HTMLString: string) => {
   return document.toString()
 }
 
+const combineStyles = (HTMLString: string) => {
+  const { document } = parseHTML(HTMLString);
+  const styleTags = document.getElementsByTagName("style");
+  styleTags.forEach((element) => {
+    console.log(element.innerText)
+  })
+}
+
+
+
 const output = appendScriptsToBody(textData)
+combineStyles(textData)
 
 const handler = (request: Request): Response => {
   return new Response(
